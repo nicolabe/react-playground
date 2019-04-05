@@ -1,26 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from 'react';
+import { Navbar } from './components/Navbar'
+import { Sidebar } from './components/Sidebar'
+import { Overlay } from './components/Overlay'
+import { MainContent } from './components/MainContent'
+import { ThemeProvider } from "styled-components"
+
+const theme = {
+  primary: "mediumseagreen"
+};
 
 class App extends Component {
+  state = {
+    sidebarOpen: false
+  };
+
+  toggleSidebar = () => this.setState({ sidebarOpen: !this.state.sidebarOpen });
+
+  clickOverlay = () => this.setState({ sidebarOpen: false });
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <ThemeProvider theme={theme}>
+        <Fragment>
+          <Navbar toggleSidebar={this.toggleSidebar} />
+          <Sidebar isOpen={this.state.sidebarOpen} />
+          <Overlay onClick={this.clickOverlay} isOpen={this.state.sidebarOpen} />
+          <MainContent />
+        </Fragment>
+      </ThemeProvider>
     );
   }
 }
