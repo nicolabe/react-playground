@@ -16,7 +16,7 @@ const StyledHeader = styled.h1`
 
 export const MainContent = () => (
   <StyledMain>
-    <StyledHeader>Info</StyledHeader>
+    <StyledHeader>Playing with CSS grid</StyledHeader>
     <ImageGrid />
   </StyledMain>
 )

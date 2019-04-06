@@ -6,7 +6,8 @@ import { MainContent } from './components/MainContent'
 import { ThemeProvider } from "styled-components"
 
 const theme = {
-  primary: "mediumseagreen"
+  primary: "mediumseagreen",
+  text: "white"
 };
 
 class App extends Component {

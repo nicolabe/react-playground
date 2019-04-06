@@ -6,9 +6,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url(https://source.unsplash.com/l3N9Q27zULw/1200x900);
+  background-size: cover;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.md-light {
+  color: rgba(255, 255, 255, 1);
 }

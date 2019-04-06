@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import ReactSVG from 'react-svg'
 import styled from 'styled-components'
+import { Dropdown } from "./Dropdown"
 
 const StyledNav = styled.nav`
   background-color: ${props => props.theme.primary};
@@ -28,42 +28,39 @@ const StyledButton = styled.button`
   }
 `;
 
-const StyledLinkContainer = styled.ul`
-  list-style: none;
-  display: flex;
-`;
-
-const StyledLink = styled.a`
-  margin-left: 16px;
-  color: white;
+const StyledDropdownContainer = styled.button`
+  color: ${props => props.theme.text};
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
-  text-decoration: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  outline: none;
 `;
 
-export const Navbar = ({toggleSidebar}) => (
-  <StyledNav>
-    <StyledButton onClick={toggleSidebar}>
-      <ReactSVG
-        src="menu-icon.svg"
-        svgStyle={{
-          fill: "white",
-          height: "22px",
-          width: "22px"
-        }}
-      />
-    </StyledButton>
-    <StyledLinkContainer>
-      <li>
-        <StyledLink href="/about">Om oss</StyledLink>
-      </li>
-      <li>
-        <StyledLink href="/hjem">Hjem</StyledLink>
-      </li>
-    </StyledLinkContainer>
-  </StyledNav>
-)
+export const Navbar = ({toggleSidebar}) => {
+  const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownIsOpen(!dropdownIsOpen);
+  }
+
+  return (
+    <StyledNav>
+      <StyledButton onClick={toggleSidebar}>
+        <i className="material-icons md-light">menu</i>
+      </StyledButton>
+      <StyledDropdownContainer onClick={toggleDropdown}>
+        Nicolai <i className="material-icons md-light">arrow_drop_down</i>
+        <Dropdown isOpen={dropdownIsOpen} />
+      </StyledDropdownContainer>
+    </StyledNav>
+  )
+}
 
 Navbar.propTypes = {
   toggleSidebar: PropTypes.func
