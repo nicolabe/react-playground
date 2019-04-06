@@ -5,6 +5,7 @@ import { ImageGrid } from "./ImageGrid"
 const StyledMain = styled.main`
   padding: 32px 32px 0 44px;
   margin: 0;
+  min-height: 100vh;
 `;
 
 const StyledHeader = styled.h1`
@@ -15,7 +16,7 @@ const StyledHeader = styled.h1`
 
 export const MainContent = () => (
   <StyledMain>
-    <StyledHeader>Here's some info!</StyledHeader>
+    <StyledHeader>Info</StyledHeader>
     <ImageGrid />
   </StyledMain>
 )

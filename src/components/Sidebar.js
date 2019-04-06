@@ -29,6 +29,7 @@ const StyledWrapper = styled.div`
 const StyledHeader = styled.h1`
   font-weight: 300;
   text-transform: uppercase;
+  font-size: 28px;
 `;
 
 const StyledLink = styled.a`
@@ -50,7 +51,7 @@ const StyledLink = styled.a`
 export const Sidebar = ({ isOpen }) => (
   <StyledSidebar isOpen={isOpen}>
     <StyledWrapper>
-      <StyledHeader>Content</StyledHeader>
+      <StyledHeader>Min app</StyledHeader>
       <StyledLink href="/home">Hjem</StyledLink>
       <StyledLink href="/about">Om oss</StyledLink>
     </StyledWrapper>
