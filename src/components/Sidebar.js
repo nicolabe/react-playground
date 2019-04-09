@@ -10,7 +10,6 @@ const StyledSidebar = styled.div`
   transform: ${ props => props.isOpen ? "translateX(0)" : "translateX(-100%)"};
   transition: transform 350ms ease-in-out;
   width: 240px;
-  border-right: 2px solid ${props => props.theme.primary};
   background-color: white;
   z-index: 2;
   display: flex;
@@ -41,10 +40,31 @@ const StyledLink = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  position: relative;
 
   &:hover {
-    background-color: #e9e9e9;
+    color: #333;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 10px;
+    left: 0;
+    background-color: #333;
+    visibility: hidden;
+    transform: scaleX(0);
+    -webkit-transform: scaleX(0);
+    -webkit-transition: transform 0.3s ease-in-out 0s;
+    transition: transform 0.3s ease-in-out 0s;
+  }
+
+  &:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
   }
 `;
 
