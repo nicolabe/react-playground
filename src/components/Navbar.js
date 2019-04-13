@@ -28,7 +28,11 @@ const StyledButton = styled.button`
   }
 `;
 
-const StyledDropdownContainer = styled.button`
+const StyledDropdownContainer = styled.div`
+  position: relative;
+`;
+
+const StyledDropdownButton = styled.button`
   color: ${props => props.theme.text};
   font-size: 16px;
   font-weight: 700;
@@ -38,9 +42,8 @@ const StyledDropdownContainer = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
-  position: relative;
   outline: none;
-`;
+`
 
 export const Navbar = ({toggleSidebar}) => {
   const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
@@ -54,8 +57,10 @@ export const Navbar = ({toggleSidebar}) => {
       <StyledButton onClick={toggleSidebar}>
         <i className="material-icons md-light">menu</i>
       </StyledButton>
-      <StyledDropdownContainer onClick={toggleDropdown}>
-        Nicolai <i className="material-icons md-light">arrow_drop_down</i>
+      <StyledDropdownContainer>
+        <StyledDropdownButton onClick={toggleDropdown}>
+          Nicolai <i className="material-icons md-light">arrow_drop_down</i>
+        </StyledDropdownButton>
         <Dropdown isOpen={dropdownIsOpen} />
       </StyledDropdownContainer>
     </StyledNav>

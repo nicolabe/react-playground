@@ -7,6 +7,7 @@ import { ThemeProvider } from "styled-components"
 
 const theme = {
   primary: "mediumseagreen",
+  secondary: "#ccc",
   text: "white"
 };
 
